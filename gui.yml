@@ -1,4 +1,4 @@
-# Shulker-Tpa GUI config
+# Blade-Tpa GUI config
 # Actions: CONFIRM, ACCEPT, DENY, CLOSE, COMMAND:/command, CONSOLE:/command
 # Supports &, &#RRGGBB, <#RRGGBB> colors and placeholders: %player%, %target%, %sender%, %receiver%, %type%, %time_left%, %warmup%, %prefix%
 

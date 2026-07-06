@@ -1,6 +1,6 @@
 package net.clouddev1stack.tpa.managers;
 
-import net.clouddev1stack.tpa.ShulkerTpaPlugin;
+import net.clouddev1stack.tpa.BladeTpaPlugin;
 import net.clouddev1stack.tpa.models.RequestType;
 import net.clouddev1stack.tpa.models.TeleportRequest;
 import java.util.ArrayList;
@@ -13,10 +13,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class RequestManager {
-   private final ShulkerTpaPlugin plugin;
+   private final BladeTpaPlugin plugin;
    private final List<TeleportRequest> requests = new ArrayList();
 
-   public RequestManager(ShulkerTpaPlugin p) {
+   public RequestManager(BladeTpaPlugin p) {
       this.plugin = p;
       Bukkit.getScheduler().runTaskTimer(p, this::expire, 20L, 20L);
    }

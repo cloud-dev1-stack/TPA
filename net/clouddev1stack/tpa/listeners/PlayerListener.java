@@ -1,6 +1,6 @@
 package net.clouddev1stack.tpa.listeners;
 
-import net.clouddev1stack.tpa.ShulkerTpaPlugin;
+import net.clouddev1stack.tpa.BladeTpaPlugin;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,9 +10,9 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 public class PlayerListener implements Listener {
-   private final ShulkerTpaPlugin p;
+   private final BladeTpaPlugin p;
 
-   public PlayerListener(ShulkerTpaPlugin p) {
+   public PlayerListener(BladeTpaPlugin p) {
       this.p = p;
    }
 

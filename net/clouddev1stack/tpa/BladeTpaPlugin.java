@@ -1,6 +1,6 @@
 package net.clouddev1stack.tpa;
 
-import net.clouddev1stack.tpa.commands.ShulkerTpaCommand;
+import net.clouddev1stack.tpa.commands.BladeTpaCommand;
 import net.clouddev1stack.tpa.listeners.GuiListener;
 import net.clouddev1stack.tpa.listeners.PlayerListener;
 import net.clouddev1stack.tpa.managers.CombatManager;
@@ -15,7 +15,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ShulkerTpaPlugin extends JavaPlugin {
+public class BladeTpaPlugin extends JavaPlugin {
    private FileConfiguration messages;
    private FileConfiguration gui;
    private MessageManager mm;
@@ -38,7 +38,7 @@ public class ShulkerTpaPlugin extends JavaPlugin {
       this.tm = new TeleportManager(this);
       this.rm = new RequestManager(this);
       this.gm = new GuiManager(this);
-      ShulkerTpaCommand cmd = new ShulkerTpaCommand(this);
+      BladeTpaCommand cmd = new BladeTpaCommand(this);
       this.getCommand("tpa").setExecutor(cmd);
       this.getCommand("tpahere").setExecutor(cmd);
       this.getCommand("tpahereall").setExecutor(cmd);

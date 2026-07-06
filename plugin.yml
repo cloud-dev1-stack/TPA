@@ -1,8 +1,8 @@
-name: Shulker-Tpa
+name: Blade-Tpa
 version: 1.0.2
-main: net.clouddev1stack.tpa.ShulkerTpaPlugin
+main: net.clouddev1stack.tpa.BladeTpaPlugin
 api-version: '1.13'
-author: ShulkerMC
+author: CloudDev1Stack
 description: BetterTPA-style teleport request plugin with custom GUIs.
 commands:
   tpa:
@@ -34,31 +34,31 @@ commands:
     description: Toggle ignoring all teleport requests.
     usage: /tpaignoreall
 permissions:
-  shulkertpa.use:
+  bladetpa.use:
     default: true
-  shulkertpa.tpa:
+  bladetpa.tpa:
     default: true
-  shulkertpa.tpahere:
+  bladetpa.tpahere:
     default: true
-  shulkertpa.tpahereall:
+  bladetpa.tpahereall:
     default: op
-  shulkertpa.accept:
+  bladetpa.accept:
     default: true
-  shulkertpa.deny:
+  bladetpa.deny:
     default: true
-  shulkertpa.list:
+  bladetpa.list:
     default: true
-  shulkertpa.ignore:
+  bladetpa.ignore:
     default: true
-  shulkertpa.ignoreall:
+  bladetpa.ignoreall:
     default: true
-  shulkertpa.reload:
+  bladetpa.reload:
     default: op
-  shulkertpa.warmup.bypass:
+  bladetpa.warmup.bypass:
     default: op
-  shulkertpa.cooldown.bypass:
+  bladetpa.cooldown.bypass:
     default: op
-  shulkertpa.ignore.bypass:
+  bladetpa.ignore.bypass:
     default: op
-  shulkertpa.combat.bypass:
+  bladetpa.combat.bypass:
     default: op

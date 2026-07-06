@@ -1,13 +1,13 @@
 package net.clouddev1stack.tpa.managers;
 
-import net.clouddev1stack.tpa.ShulkerTpaPlugin;
+import net.clouddev1stack.tpa.BladeTpaPlugin;
 import net.clouddev1stack.tpa.utils.ChatUtil;
 import org.bukkit.command.CommandSender;
 
 public class MessageManager {
-   private final ShulkerTpaPlugin plugin;
+   private final BladeTpaPlugin plugin;
 
-   public MessageManager(ShulkerTpaPlugin plugin) {
+   public MessageManager(BladeTpaPlugin plugin) {
       this.plugin = plugin;
    }
 

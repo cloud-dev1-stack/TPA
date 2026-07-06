@@ -26,7 +26,7 @@ unignored-player: '%prefix%&aYou no longer ignore teleport requests from &f%targ
 ignored-by-target: '%prefix%&cThat player is ignoring teleport requests.'
 ignore-all-enabled: '%prefix%&cYou are now ignoring all teleport requests.'
 ignore-all-disabled: '%prefix%&aYou are no longer ignoring all teleport requests.'
-reload-success: '%prefix%&aShulker-Tpa reloaded successfully.'
+reload-success: '%prefix%&aBlade-Tpa reloaded successfully.'
 request-list-header: '%prefix%&ePending requests:'
 request-list-line: '&7- &f%sender% &8(&e%type%&8) &7expires in &f%time_left%s'
 click-accept: '&a&l[ACCEPT]'

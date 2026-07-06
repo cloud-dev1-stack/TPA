@@ -1,6 +1,6 @@
 package net.clouddev1stack.tpa.managers;
 
-import net.clouddev1stack.tpa.ShulkerTpaPlugin;
+import net.clouddev1stack.tpa.BladeTpaPlugin;
 import net.clouddev1stack.tpa.models.RequestType;
 import net.clouddev1stack.tpa.models.TeleportRequest;
 import net.clouddev1stack.tpa.utils.ChatUtil;
@@ -21,9 +21,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class GuiManager {
-   private final ShulkerTpaPlugin plugin;
+   private final BladeTpaPlugin plugin;
 
-   public GuiManager(ShulkerTpaPlugin plugin) {
+   public GuiManager(BladeTpaPlugin plugin) {
       this.plugin = plugin;
    }
 

@@ -1,6 +1,6 @@
 package net.clouddev1stack.tpa.commands;
 
-import net.clouddev1stack.tpa.ShulkerTpaPlugin;
+import net.clouddev1stack.tpa.BladeTpaPlugin;
 import net.clouddev1stack.tpa.models.RequestType;
 import net.clouddev1stack.tpa.models.TeleportRequest;
 import java.util.ArrayList;
@@ -18,17 +18,17 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
-public class ShulkerTpaCommand implements CommandExecutor, TabCompleter {
-   private final ShulkerTpaPlugin p;
+public class BladeTpaCommand implements CommandExecutor, TabCompleter {
+   private final BladeTpaPlugin p;
 
-   public ShulkerTpaCommand(ShulkerTpaPlugin p) {
+   public BladeTpaCommand(BladeTpaPlugin p) {
       this.p = p;
    }
 
    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
       String c = cmd.getName().toLowerCase();
       if (c.equals("tpa") && args.length > 0 && args[0].equalsIgnoreCase("reload")) {
-         if (!sender.hasPermission("shulkertpa.reload")) {
+         if (!sender.hasPermission("bladetpa.reload")) {
             this.p.messages().send(sender, "no-permission");
             return true;
          } else {
@@ -74,7 +74,7 @@ public class ShulkerTpaCommand implements CommandExecutor, TabCompleter {
    }
 
    private boolean sendReq(Player s, String[] args, RequestType type) {
-      String perm = type == RequestType.TPA ? "shulkertpa.tpa" : "shulkertpa.tpahere";
+      String perm = type == RequestType.TPA ? "bladetpa.tpa" : "bladetpa.tpahere";
       if (!s.hasPermission(perm)) {
          this.p.messages().send(s, "no-permission");
          return true;
@@ -90,12 +90,12 @@ public class ShulkerTpaCommand implements CommandExecutor, TabCompleter {
             this.p.messages().send(s, "cannot-self");
             return true;
          } else if (!this.blockCombat(s) && !this.blockCombat(t)) {
-            if (this.p.ignores().ignores(t.getUniqueId(), s.getUniqueId()) && !s.hasPermission("shulkertpa.ignore.bypass")) {
+            if (this.p.ignores().ignores(t.getUniqueId(), s.getUniqueId()) && !s.hasPermission("bladetpa.ignore.bypass")) {
                this.p.messages().send(s, "ignored-by-target");
                return true;
             } else {
                int cd = this.p.getConfig().getInt("cooldown-seconds", 15);
-               if (!s.hasPermission("shulkertpa.cooldown.bypass") && this.p.cooldowns().active(s.getUniqueId(), cd)) {
+               if (!s.hasPermission("bladetpa.cooldown.bypass") && this.p.cooldowns().active(s.getUniqueId(), cd)) {
                   this.p.messages().send(s, "cooldown-active", "%cooldown%", String.valueOf(this.p.cooldowns().left(s.getUniqueId(), cd)));
                   return true;
                } else if (this.p.getConfig().getBoolean("gui-enabled", true)) {
@@ -130,7 +130,7 @@ public class ShulkerTpaCommand implements CommandExecutor, TabCompleter {
    }
 
    private boolean accept(Player pl, String[] args) {
-      if (!pl.hasPermission("shulkertpa.accept")) {
+      if (!pl.hasPermission("bladetpa.accept")) {
          this.p.messages().send(pl, "no-permission");
          return true;
       } else if (args.length == 0 && this.p.getConfig().getBoolean("gui-enabled", true) && this.p.requests().forTarget(pl.getUniqueId()).size() > 1) {
@@ -169,7 +169,7 @@ public class ShulkerTpaCommand implements CommandExecutor, TabCompleter {
    }
 
    private boolean deny(Player pl, String[] args) {
-      if (!pl.hasPermission("shulkertpa.deny")) {
+      if (!pl.hasPermission("bladetpa.deny")) {
          this.p.messages().send(pl, "no-permission");
          return true;
       } else if (args.length == 0 && this.p.getConfig().getBoolean("gui-enabled", true) && this.p.requests().forTarget(pl.getUniqueId()).size() > 1) {
@@ -199,7 +199,7 @@ public class ShulkerTpaCommand implements CommandExecutor, TabCompleter {
    }
 
    private boolean list(Player pl) {
-      if (!pl.hasPermission("shulkertpa.list")) {
+      if (!pl.hasPermission("bladetpa.list")) {
          this.p.messages().send(pl, "no-permission");
          return true;
       } else {
@@ -224,7 +224,7 @@ public class ShulkerTpaCommand implements CommandExecutor, TabCompleter {
    }
 
    private boolean ignore(Player pl, String[] args) {
-      if (!pl.hasPermission("shulkertpa.ignore")) {
+      if (!pl.hasPermission("bladetpa.ignore")) {
          this.p.messages().send(pl, "no-permission");
          return true;
       } else if (args.length < 1) {
@@ -244,7 +244,7 @@ public class ShulkerTpaCommand implements CommandExecutor, TabCompleter {
    }
 
    private boolean ignoreAll(Player pl) {
-      if (!pl.hasPermission("shulkertpa.ignoreall")) {
+      if (!pl.hasPermission("bladetpa.ignoreall")) {
          this.p.messages().send(pl, "no-permission");
          return true;
       } else {
@@ -255,7 +255,7 @@ public class ShulkerTpaCommand implements CommandExecutor, TabCompleter {
    }
 
    private boolean hereAll(Player pl) {
-      if (!pl.hasPermission("shulkertpa.tpahereall")) {
+      if (!pl.hasPermission("bladetpa.tpahereall")) {
          this.p.messages().send(pl, "no-permission");
          return true;
       } else {
@@ -275,7 +275,7 @@ public class ShulkerTpaCommand implements CommandExecutor, TabCompleter {
    }
 
    private boolean blockCombat(Player pl) {
-      if (this.p.getConfig().getBoolean("combat-block", true) && !pl.hasPermission("shulkertpa.combat.bypass") && this.p.combat().inCombat(pl, this.p.getConfig().getInt("combat-tag-seconds", 15))) {
+      if (this.p.getConfig().getBoolean("combat-block", true) && !pl.hasPermission("bladetpa.combat.bypass") && this.p.combat().inCombat(pl, this.p.getConfig().getInt("combat-tag-seconds", 15))) {
          this.p.messages().send(pl, "teleport-cancelled-combat");
          return true;
       } else {

@@ -1,7 +1,7 @@
 package net.clouddev1stack.tpa.listeners;
 
-import net.clouddev1stack.tpa.ShulkerTpaPlugin;
-import net.clouddev1stack.tpa.commands.ShulkerTpaCommand;
+import net.clouddev1stack.tpa.BladeTpaPlugin;
+import net.clouddev1stack.tpa.commands.BladeTpaCommand;
 import net.clouddev1stack.tpa.managers.GuiManager;
 import net.clouddev1stack.tpa.models.RequestType;
 import java.util.UUID;
@@ -15,9 +15,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.InventoryHolder;
 
 public class GuiListener implements Listener {
-   private final ShulkerTpaPlugin plugin;
+   private final BladeTpaPlugin plugin;
 
-   public GuiListener(ShulkerTpaPlugin plugin) {
+   public GuiListener(BladeTpaPlugin plugin) {
       this.plugin = plugin;
    }
 
@@ -58,7 +58,7 @@ public class GuiListener implements Listener {
             player.closeInventory();
             if (target != null && type != null) {
                this.play(player, "gui-sounds.confirm");
-               (new ShulkerTpaCommand(this.plugin)).create(player, target, type);
+               (new BladeTpaCommand(this.plugin)).create(player, target, type);
             } else {
                this.plugin.messages().send(player, "player-not-found");
             }

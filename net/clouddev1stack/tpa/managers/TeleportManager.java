@@ -1,6 +1,6 @@
 package net.clouddev1stack.tpa.managers;
 
-import net.clouddev1stack.tpa.ShulkerTpaPlugin;
+import net.clouddev1stack.tpa.BladeTpaPlugin;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -13,11 +13,11 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 public class TeleportManager {
-   private final ShulkerTpaPlugin plugin;
+   private final BladeTpaPlugin plugin;
    private final Map<UUID, Integer> tasks = new HashMap();
    private final Map<UUID, Location> start = new HashMap();
 
-   public TeleportManager(ShulkerTpaPlugin p) {
+   public TeleportManager(BladeTpaPlugin p) {
       this.plugin = p;
    }
 
@@ -36,7 +36,7 @@ public class TeleportManager {
    }
 
    public void warmup(Player mover, Player destination) {
-      int warm = mover.hasPermission("shulkertpa.warmup.bypass") ? 0 : this.plugin.getConfig().getInt("warmup-seconds", 5);
+      int warm = mover.hasPermission("bladetpa.warmup.bypass") ? 0 : this.plugin.getConfig().getInt("warmup-seconds", 5);
       if (warm <= 0) {
          this.doTp(mover, destination);
       } else {
